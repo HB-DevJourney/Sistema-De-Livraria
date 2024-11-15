@@ -1,0 +1,10 @@
+org\livraria\model\Autor.class
+org\livraria\ProgramaPrincipal$OpcoesDoMenu.class
+org\livraria\model\Cliente.class
+org\livraria\model\Biblioteca.class
+org\livraria\service\BibliotecaService.class
+org\livraria\model\Emprestimo.class
+org\livraria\util\ConsoleUtils.class
+org\livraria\model\Livro.class
+org\livraria\ProgramaPrincipal$Menu.class
+org\livraria\ProgramaPrincipal.class
