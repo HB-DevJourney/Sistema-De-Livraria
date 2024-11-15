@@ -1,10 +1,11 @@
 package org.livraria;
 
-import org.livraria.model.*;
+import org.fusesource.jansi.Ansi;
+import org.livraria.model.Autor;
+import org.livraria.model.Cliente;
+import org.livraria.model.Livro;
 import org.livraria.service.BibliotecaService;
 import org.livraria.util.ConsoleUtils;
-
-import org.fusesource.jansi.Ansi;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -24,7 +25,6 @@ public class ProgramaPrincipal {
 
     private static class Menu {
 
-        // Principal
         private static void menuPrincipal() {
             int opcao = 0;
             do {
@@ -66,7 +66,7 @@ public class ProgramaPrincipal {
             }
         }
 
-        // [1] Submenu de livros
+
         public static void exibirMenuLivros() {
             ConsoleUtils.limparTela();
 
@@ -109,7 +109,7 @@ public class ProgramaPrincipal {
             }
         }
 
-        // [2] Submenu de Clientes
+
         public static void exibirMenuClientes() {
             ConsoleUtils.limparTela();
 
@@ -145,7 +145,7 @@ public class ProgramaPrincipal {
             }
         }
 
-        // [3] Submenu de Empréstimos
+
         public static void exibirMenuEmprestimos() {
             ConsoleUtils.limparTela();
 

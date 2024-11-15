@@ -4,7 +4,6 @@ import org.fusesource.jansi.Ansi;
 import org.livraria.model.*;
 import org.livraria.util.ConsoleUtils;
 
-import java.io.Console;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -13,7 +12,7 @@ public class BibliotecaService {
     private static BibliotecaService bibliotecaService = new BibliotecaService();
     private static Biblioteca biblioteca = new Biblioteca();
 
-    // OK
+
     public void cadastrarLivro (Livro livro) {
         Autor autorExistente = biblioteca.getAutores().stream()
                 .filter(autor -> autor.getNome().equalsIgnoreCase(livro.getAutor().getNome()))
@@ -28,7 +27,6 @@ public class BibliotecaService {
         biblioteca.getLivros().add(livro);
     }
 
-    // OK
     public void verLivrosDisponiveis () {
         ConsoleUtils.limparTela();
         System.out.println(String.valueOf(Ansi.ansi().fgCyan().bold().a("\n|||||||||| LIVROS DISPONÍVEIS ||||||||||\n").reset()));
@@ -40,7 +38,6 @@ public class BibliotecaService {
         }
     }
 
-    // OK
     public Livro findLivrosById (int id) {
         for (Livro livro : biblioteca.getLivros())
             if (livro.getId() == id)
@@ -48,7 +45,6 @@ public class BibliotecaService {
         return null;
     }
 
-    // OK
     public void findAllLivros () {
         if (biblioteca.getLivros().isEmpty())
             System.out.println("Não há livros cadastrados.");
@@ -56,7 +52,6 @@ public class BibliotecaService {
             System.out.println(livro.toString());
     }
 
-    // OK
     public void pesquisarLivrosPorTitulo (String titulo) {
         List<Livro> livrosEncontrados = biblioteca.getLivros().stream()
                 .filter(livro -> livro.getTitulo().equalsIgnoreCase(titulo))
@@ -68,7 +63,6 @@ public class BibliotecaService {
             System.out.println(livro.toString());
     }
 
-    // OK
     public void pesquisaPorAutor (String autor) {
         List<Livro> livrosDoAutor = biblioteca.getLivros().stream()
                 .filter(livro -> livro.getAutor().getNome().equals(autor))
@@ -80,12 +74,10 @@ public class BibliotecaService {
             System.out.println(livro.toString());
     }
 
-    // OK
     public void cadastrarAutor (Autor autor) {
         biblioteca.getAutores().add(autor);
     }
 
-    // OK
     public void cadastrarEmprestimo (int livroID, int clienteID) {
         Livro livro = findLivrosById(livroID);
         Cliente cliente = findClienteById(clienteID);
@@ -106,7 +98,6 @@ public class BibliotecaService {
 
     }
 
-    // OK
     public void findAllEmprestimos () {
         ConsoleUtils.limparTela();
         System.out.println(String.valueOf(Ansi.ansi().fgCyan().bold().a("\n|||||||||| HISTÓRICO DE EMPRÉSTIMOS ||||||||||\n").reset()));
@@ -116,13 +107,11 @@ public class BibliotecaService {
             System.out.println(emprestimo.toString());
     }
 
-    // OK
     public void cadastrarCliente (Cliente cliente) {
         biblioteca.getClientes().add(cliente);
         System.out.println(String.valueOf(Ansi.ansi().fgGreen().bold().a("\nCadastrado com Sucesso.").reset()));
     }
 
-    // OK
     public void findAllClientes () {
         System.out.println(String.valueOf(Ansi.ansi().fgCyan().bold().a("\n|||||||||| LISTA DE CLIENTES ||||||||||\n").reset()));
         if (biblioteca.getClientes().isEmpty())
@@ -131,7 +120,6 @@ public class BibliotecaService {
             System.out.println(cliente.toString());
     }
 
-    // OK
     public Cliente findClienteById (int id) {
         for (Cliente cliente : biblioteca.getClientes())
             if (cliente.getId() == id)
